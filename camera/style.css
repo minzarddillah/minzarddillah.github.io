@@ -1,0 +1,29 @@
+body{
+	background-image: url(background.png) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  90%;
+	background-color: black;
+}
+#video{
+	margin-top: 3.5%;
+	margin-left: -280px;
+}
+.container{
+    width: 365.3px;
+    overflow:hidden;
+    display:block;
+	height: 700px;
+	margin-top: 5.5%;
+	margin-left: 40.51%;
+}
+button{
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+#back{
+	margin-left: 30%;
+}

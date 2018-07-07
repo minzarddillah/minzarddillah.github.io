@@ -1,0 +1,47 @@
+body{
+	background-image: url(background.png) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  90%;
+	background-color: black;
+}
+
+#calendar{
+	margin-left: 45%;
+	margin-top: 10%;
+	width: 200px;
+	height: 250px;
+	color: #fff;
+	border-radius: 5%;
+}
+
+#calendar>p{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	padding: 10px 0;
+	margin: 0;
+	color: white;
+	text-align: center;
+	font-size: 40px;
+}
+#hari{
+	font-size: 16px;
+}
+#bulanTahun{
+	font-size: 14px;
+}
+#tanggal{
+	font-size: 64px;
+	padding-top: 10px;
+	padding-bottom: 0;
+}
+button{
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+#back{
+	margin-left: 30%;
+	margin-top: 19.1%;
+}

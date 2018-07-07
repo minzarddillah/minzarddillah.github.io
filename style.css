@@ -1,0 +1,25 @@
+body{
+	background-image: url(background.png) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  90%;
+	background-color: black;
+}
+button{
+	width: 53px;
+	height: 53px;
+	margin-left:27px;
+	margin-top:42px;
+}
+#tombol{
+	margin-left:772px;
+	margin-top:98px;
+}
+
+button {
+
+    background: transparent;
+    border: none !important;
+    font-size:0;
+}

@@ -1,0 +1,25 @@
+body{
+	background-image: url(background.png) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  90%;
+	background-color: black;
+}
+#txt{
+	color: white;
+	font-size: 70px;
+	font-family: 'Ranchers', cursive;
+	margin-left: 42.6%;
+	margin-top: 20%;
+}
+button{
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+#back{
+	margin-left: 30%;
+	margin-top: 17%;
+}
