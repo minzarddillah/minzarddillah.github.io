@@ -95,6 +95,11 @@ self.addEventListener(`message`, event => {
   if (api) MessageAPI[api](event, event.data)
 })
 
+self.addEventListener('install', function(e) {
+
+    self.skipWaiting();
+});
+
 self.addEventListener("activate", function (event) {
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
