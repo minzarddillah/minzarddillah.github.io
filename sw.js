@@ -27,29 +27,29 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-db18f0a9d8b2bb4f1b7d.js"
+    "url": "webpack-runtime-9f037afc1ffaf3b41fce.js"
   },
   {
-    "url": "styles.ac22aca8c1c529dd9e4b.css"
+    "url": "framework-803d15bfc38f8032fc82.js"
   },
   {
-    "url": "styles-8fab2804fb6f85b824b6.js"
+    "url": "styles.927405775dbe5a5d5e54.css"
   },
   {
-    "url": "framework-d585a04b7d285a7760d6.js"
+    "url": "styles-fca7806e176b2204f5b5.js"
   },
   {
-    "url": "app-1001f1a1d5decc0734b4.js"
+    "url": "app-c148cc38dc8f50f41e01.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "d0b632a95ec92ca5c8c4392bd43ba148"
+    "revision": "036e7ad599bd79ab75fe354d18bd4119"
   },
   {
-    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-16703ee5599528db9f93.js"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-49be599b1ad8fa2a8465.js"
   },
   {
-    "url": "polyfill-092c4c6a41bb38cca3d9.js"
+    "url": "polyfill-e321dadb06c68f3d52e7.js"
   },
   {
     "url": "manifest.webmanifest",
@@ -60,7 +60,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
 workbox.routing.registerRoute(/^https?:.*\/page-data\/.*\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 
 /* global importScripts, workbox, idbKeyval */
@@ -93,6 +93,24 @@ const MessageAPI = {
 self.addEventListener(`message`, event => {
   const { gatsbyApi: api } = event.data
   if (api) MessageAPI[api](event, event.data)
+})
+
+self.addEventListener("activate", function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames
+          .filter(function (cacheName) {
+            // Return true if you want to remove this cache,
+            // but remember that caches are shared across
+            // the whole origin
+          })
+          .map(function (cacheName) {
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
 })
 
 function handleAPIRequest({ event }) {
@@ -145,7 +163,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-1001f1a1d5decc0734b4.js`))) {
+  if (!resources || !(await caches.match(`/app-c148cc38dc8f50f41e01.js`))) {
     return await fetch(event.request)
   }
 
